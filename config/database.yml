@@ -1,0 +1,5 @@
+test:
+  adapter: mysql
+  database: getmethere_test
+  username: root
+  encoding: utf8

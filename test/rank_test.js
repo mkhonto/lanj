@@ -15,7 +15,7 @@ var rankService = new RanksDataService(connection);
 describe('Rank Data Service', function(){
 
       it('should get all ranks', function (done) {
-          rankDataService
+          rankService
             .getAllRanks()
             .done(function(ranks){
                 assert.equal(2, ranks.length);
@@ -24,7 +24,7 @@ describe('Rank Data Service', function(){
       });
 
       it('should get all routes offered by specified rank', function (done) {
-          rankDataService
+          rankService
             .getRoutes(2)
             .done(function(routes){
                 assert.equal(2, routes.length);
@@ -32,7 +32,7 @@ describe('Rank Data Service', function(){
             });
       });
       it('should get rank info', function (done) {
-          rankDataService
+          rankService
             .getRankInfo(2)
             .done(function(rank){
 

@@ -37,9 +37,9 @@ describe('Rank Data Service', function(){
             .done(function(rank){
 
                 var bellville = {
-                  id:2
+                  id:2,
                   name :'Bellvile',
-                  type:'official'
+                  type:'official',
                   lattitude:10.1457800000,
                   longitude:-20.1447600000
                 }

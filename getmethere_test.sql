@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `ranks`
 --
 
-CREATE TABLE IF NOT EXISTS `ranks` (
+CREATE TABLE IF NOT EXISTS `rank` (
   `rank_id` int(11) NOT NULL AUTO_INCREMENT,
   `rank_name` char(100) DEFAULT NULL,
   `rank_type` char(100) DEFAULT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `ranks` (
 -- Dumping data for table `ranks`
 --
 
-INSERT INTO `ranks` (`rank_id`, `rank_name`, `rank_type`, `latitude`, `longitude`) VALUES
+INSERT INTO `rank` (`rank_id`, `rank_name`, `rank_type`, `latitude`, `longitude`) VALUES
 (1, 'Cape Town', 'official', 3.1457890000, 70.9856210000),
 (2, 'Bellville', 'official', 10.1457800000, -20.1447600000),
 (3, 'Khayelitsha', 'official', 10.2546980000, 40.2365800000);
@@ -50,7 +50,7 @@ INSERT INTO `ranks` (`rank_id`, `rank_name`, `rank_type`, `latitude`, `longitude
 -- Table structure for table `routes`
 --
 
-CREATE TABLE IF NOT EXISTS `routes` (
+CREATE TABLE IF NOT EXISTS `route` (
   `route_id` int(11) NOT NULL AUTO_INCREMENT,
   `rank_id` int(42) DEFAULT NULL,
   `route_name` char(100) DEFAULT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `routes` (
 -- Dumping data for table `routes`
 --
 
-INSERT INTO `routes` (`route_id`, `rank_id`, `route_name`, `price`, `destination_id`) VALUES
+INSERT INTO `route` (`route_id`, `rank_id`, `route_name`, `price`, `destination_id`) VALUES
 (1, 2, 'Bellville N2 Cape Town CBD', 16.50, 1),
 (3, 2, 'Bellville - Khayelitsha', 13.00, 3);
 
@@ -75,7 +75,7 @@ INSERT INTO `routes` (`route_id`, `rank_id`, `route_name`, `price`, `destination
 --
 -- Constraints for table `routes`
 --
-ALTER TABLE `routes`
+ALTER TABLE `route`
   ADD CONSTRAINT `routes_ibfk_1` FOREIGN KEY (`rank_id`) REFERENCES `ranks` (`rank_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

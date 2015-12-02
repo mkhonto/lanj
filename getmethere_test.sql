@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 02, 2015 at 04:02 PM
+-- Generation Time: Dec 02, 2015 at 05:17 PM
 -- Server version: 5.5.46-0ubuntu0.14.04.2
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ranks`
+-- Table structure for table `rank`
 --
 
 CREATE TABLE IF NOT EXISTS `rank` (
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `rank` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `ranks`
+-- Dumping data for table `rank`
 --
 
 INSERT INTO `rank` (`rank_id`, `rank_name`, `rank_type`, `latitude`, `longitude`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `rank` (`rank_id`, `rank_name`, `rank_type`, `latitude`, `longitude`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `routes`
+-- Table structure for table `route`
 --
 
 CREATE TABLE IF NOT EXISTS `route` (
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `route` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `routes`
+-- Dumping data for table `route`
 --
 
 INSERT INTO `route` (`route_id`, `rank_id`, `route_name`, `price`, `destination_id`) VALUES
@@ -73,10 +73,10 @@ INSERT INTO `route` (`route_id`, `rank_id`, `route_name`, `price`, `destination_
 --
 
 --
--- Constraints for table `routes`
+-- Constraints for table `route`
 --
 ALTER TABLE `route`
-  ADD CONSTRAINT `routes_ibfk_1` FOREIGN KEY (`rank_id`) REFERENCES `ranks` (`rank_id`);
+  ADD CONSTRAINT `route_ibfk_1` FOREIGN KEY (`rank_id`) REFERENCES `rank` (`rank_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

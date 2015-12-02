@@ -9,15 +9,29 @@
 
 <body>
 
+	<div id="row">
+	<div class="col-md-8  bg-success">
 	<form id="Search-form">
+		<div class="container">
 			<h2>Let's Get You There ...</h2>  
 		  	<div class="form-group">
 		    	<input type="text" class="form-control" placeholder="Search Destination">
 		  	</div>
-		  	<input id="button" type="submit" class="btn btn-success"></button><br> 
+		  	<input id="button" type="submit" class="btn btn-success"></button><br>
 
-		  	<button id="button" type="submit" class="btn btn-success">Show More Ranks</button><br>
+		  	<button id="button" type="submit" class="btn btn-success">Show More Ranks</button>
 	</form>
+		</div>
+	</div>
+
+	<div class="col-md-4 bg-primary">
+		<div class="container">
+			<h2>Ranks Near</h2>
+			<div id="ranks-near">
+			</div>
+		</div>
+	</div>
+	</div>
 
 <script src="jquery.min.js"></script>
 <script src="bootstrap.min.js"></script>

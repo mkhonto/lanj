@@ -1,0 +1,29 @@
+{
+  "name": "lujhay",
+  "version": "0.0.0",
+  "description": "Get Me There App",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mkhonto/lujhay.git"
+  },
+  "keywords": [
+    "MTN",
+    "Foundation",
+    "Hackathon"
+  ],
+  "author": "Team Lujhay",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/mkhonto/lujhay/issues"
+  },
+  "dependencies": {
+    "express": "~4.13.3",
+    "express-handlebars": "~2.0.1",
+    "express-myconnection": "~1.0.4",
+    "mysql": "~2.9.0"
+  }
+}

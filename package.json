@@ -24,6 +24,10 @@
     "express": "~4.13.3",
     "express-handlebars": "~2.0.1",
     "express-myconnection": "~1.0.4",
-    "mysql": "~2.9.0"
+    "mysql": "~2.9.0",
+    "mocha": "~2.3.4",
+    "bluebird": "~3.0.6",
+    "body-parser": "~1.14.1",
+    "geolib": "~2.0.18"
   }
 }

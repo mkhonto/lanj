@@ -20,7 +20,29 @@
       }
 </style>
  
-  
+   <script type="text/javascript">
+   		navigator.geolocation.getCurrentPosition(function(location){
+			//alert('!!');
+			document.getElementById('latitude').innerHTML = location.coords.latitude;
+			document.getElementById('longitude').innerHTML = location.coords.longitude;
+			var myLatLng = {
+			  					lat: parseFloat(document.getElementById('latitude').innerHTML),
+			  					lng: parseFloat(document.getElementById('longitude').innerHTML)
+			  				 };
+			  //alert(JSON.stringify(myLatLng))
+			  var map = new google.maps.Map(document.getElementById('map'), {
+			    zoom: 15,
+			    center: myLatLng
+			  });
+
+			  var marker = new google.maps.Marker({
+			    position: myLatLng,
+			    map: map,
+			    title: 'Hello World!'
+			  });
+		});
+   </script> 
+
 </head>
 
 <body>
@@ -65,29 +87,27 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-<script>	
-    function initMap() {	 			
-				navigator.geolocation.getCurrentPosition(function(location){
-					
-					document.getElementById('latitude').innerHTML = location.coords.latitude;
-					document.getElementById('longitude').innerHTML = location.coords.longitude;
-					var myLatLng = {
-					  					lat: parseFloat(document.getElementById('latitude').innerHTML),
-					  					lng: parseFloat(document.getElementById('longitude').innerHTML)
-					  				 };
-					  
-					  var map = new google.maps.Map(document.getElementById('map'), {
-					    zoom: 15,
-					    center: myLatLng
-					  });
+<script>
+	
+	
+	//alert('Latitude:'+document.getElementById('latitude').innerHTML)
+    function initMap() {
+	 			//alert(document.getElementById('latitude').innerHTML)
+			  var myLatLng = {
+			  					lat: parseFloat(document.getElementById('latitude').innerHTML),
+			  					lng: parseFloat(document.getElementById('longitude').innerHTML)
+			  				 };
+			  //alert(JSON.stringify(myLatLng))
+			  var map = new google.maps.Map(document.getElementById('map'), {
+			    zoom: 15,
+			    center: myLatLng
+			  });
 
-					  var marker = new google.maps.Marker({
-					    position: myLatLng,
-					    map: map,
-					    title: 'You are here '
-					  });
-					
-				});
+			  var marker = new google.maps.Marker({
+			    position: myLatLng,
+			    map: map,
+			    title: 'Hello World!'
+			  });
 			}
 
     </script>

@@ -4,19 +4,31 @@ var exphbs = require('express-handlebars');
 var mysql = require('mysql');
 var myConnection = require('express-myconnection');
 var bodyParser = require('body-parser');
-//var main = require('./routes/main');
-//var ranks = require('./routes/ranks');
+var rankService = require('./dataServices/rankService');
+var rank = require('./routes/ranks');
 //var routes = require('./routes/routes');
+var connectionProvider = require('./routes/connectionProvider');
 
 var app = express();
 
 var dbOptions = {
 	host: 'localhost',
 	user: 'root',
-	password: '',
+	password: 'theaya5379',
 	port: 3306,
-	database: 'getMeThere',
+	database: 'getmethere_test',
 };
+
+var serviceSetupCallback = function(connection){
+	return {
+		rankService : new rankService(connection)
+    
+	}
+};
+
+var myConnectionProvider = new connectionProvider(dbOptions, serviceSetupCallback);
+app.use(myConnectionProvider.setupProvider);
+app.use(myConnection(mysql, dbOptions, 'pool'));
 
 app.use(express.static(__dirname + '/public'));
 
@@ -31,9 +43,9 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //create routes
-app.get('/', main.show);
-//start the server
-app.get('/main', main.show);
-app.listen(3000, function(){
+var taxiRanks = new rank();
+app.get('/', taxiRanks.findNear);
+
+app.listen(5000, function(){
 	console.log('Server started! At http://localhost: 3000');
 });

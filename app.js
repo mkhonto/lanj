@@ -4,9 +4,9 @@ var exphbs = require('express-handlebars');
 var mysql = require('mysql');
 var myConnection = require('express-myconnection');
 var bodyParser = require('body-parser');
-var main = require('./routes/main');
-var ranks = require('./routes/ranks');
-var routes = require('./routes/routes');
+//var main = require('./routes/main');
+//var ranks = require('./routes/ranks');
+//var routes = require('./routes/routes');
 
 var app = express();
 
@@ -32,3 +32,8 @@ app.set('view engine', 'handlebars');
 
 //create routes
 app.get('/', main.show);
+//start the server
+app.get('/main', main.show);
+app.listen(3000, function(){
+	console.log('Server started! At http://localhost: 3000');
+});

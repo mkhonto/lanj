@@ -14,7 +14,7 @@ var app = express();
 var dbOptions = {
 	host: 'localhost',
 	user: 'root',
-	password: 'theaya5379',
+	password: 'lisawaco55',
 	port: 3306,
 	database: 'getmethere_test',
 };

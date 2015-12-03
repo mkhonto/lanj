@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table "rank"
 --
 
-CREATE TABLE IF NOT EXISTS "rank" (
+CREATE TABLE IF NOT EXISTS 'rank'(
   "rank_id" int(11) NOT NULL AUTO_INCREMENT,
   "rank_name" char(100) DEFAULT NULL,
   "rank_type" char(100) DEFAULT NULL,
@@ -50,7 +50,7 @@ INSERT INTO "rank" ("rank_id", "rank_name", "rank_type", "latitude", "longitude"
 -- Table structure for table "route"
 --
 
-CREATE TABLE IF NOT EXISTS "route" (
+CREATE TABLE IF NOT EXISTS 'route'(
   "route_id" int(11) NOT NULL AUTO_INCREMENT,
   "rank_id" int(42) DEFAULT NULL,
   "route_name" char(100) DEFAULT NULL,

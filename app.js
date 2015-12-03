@@ -13,10 +13,10 @@ var app = express();
 
 var dbOptions = {
 	host: 'localhost',
-	user: 'root',
-	password: 'lisawaco55',
+	user: 'freakils',
+	password: 'fish04',
 	port: 3306,
-	database: 'getmethere_test',
+	database: 'getmethere',
 };
 
 var serviceSetupCallback = function(connection){
@@ -47,5 +47,5 @@ var taxiRanks = new rank();
 app.get('/', taxiRanks.findNear);
 
 app.listen(5000, function(){
-	console.log('Server started! At http://localhost: 3000');
+	console.log('Server started! At http://localhost:5000');
 });

@@ -1,5 +1,8 @@
-
+DROP DATABASE IF EXISTS `getmethere`;
 CREATE DATABASE getmethere;
+
+USE `getmethere`;
+
 DROP TABLE IF EXISTS `rank`;
 CREATE TABLE `rank` (
     `id` int NOT NULL auto_increment,
@@ -8,9 +11,8 @@ CREATE TABLE `rank` (
     `latitude` decimal(10,7),
     `longitude` decimal(10,7),
     PRIMARY KEY(id),
-    CONSTRAINT uc_rank_name  UNIQUE (rank_name)
+    
 );
-
 
 
 DROP TABLE IF EXISTS `route`;
@@ -20,9 +22,8 @@ CREATE TABLE `route` (
     `destination_id` int(42),
     `price` decimal(42,2),
     PRIMARY KEY(id),
-    FOREIGN KEY (rank_id) REFERENCES ranks(id),
-    FOREIGN KEY (destination_id)  REFERENCES ranks(id)
-
+    FOREIGN KEY (rank_id) REFERENCES rank(id),
+    FOREIGN KEY (destination_id)  REFERENCES rank(id)
 );
 
 INSERT INTO rank(rank_name, rank_type, latitude, longitude) VALUES('Cape Town Station', 'Official', -33.924706, 18,422787);
@@ -34,6 +35,3 @@ INSERT INTO route(rank_id, destination_id, price) VALUES(1, 3, 12);
 INSERT INTO route(rank_id, destination_id, price) VALUES(2, 1, 12);
 INSERT INTO route(rank_id, destination_id, price) VALUES(3, 1, 15);
 INSERT INTO route(rank_id, destination_id, price) VALUES(4, 1, 13);
-
-
-

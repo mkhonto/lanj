@@ -44,7 +44,9 @@ app.set('view engine', 'handlebars');
 
 //create routes
 var taxiRanks = new rank();
-app.get('/', taxiRanks.findNear);
+app.get('/',taxiRanks.getCurrentLocation );
+app.get('/whereami',taxiRanks.findNear)
+app.post('/location',taxiRanks.receiveLocation)
 
 app.listen(5000, function(){
 	console.log('Server started! At http://localhost:5000');

@@ -10,7 +10,7 @@ CREATE TABLE `rank` (
     `rank_type` char(100),
     `latitude` decimal(10,7),
     `longitude` decimal(10,7),
-    PRIMARY KEY(id),
+    PRIMARY KEY(id)
     
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE `route` (
     FOREIGN KEY (destination_id)  REFERENCES rank(id)
 );
 
-INSERT INTO rank(rank_name, rank_type, latitude, longitude) VALUES('Cape Town Station', 'Official', -33.924706, 18,422787);
+INSERT INTO rank(rank_name, rank_type, latitude, longitude) VALUES('Cape Town Station', 'Official', -33.924706, 18.422787);
 INSERT INTO rank(rank_name, rank_type, latitude, longitude) VALUES('Mithchells Plain Station', 'Official', -34.0145819, 18.3871117);
 INSERT INTO rank(rank_name, rank_type, latitude, longitude) VALUES('Khayelitsha', 'Official', -34.0131259, 18.3857373);
 INSERT INTO rank(rank_name, rank_type, latitude, longitude) VALUES('Bellville Station', 'Official', -33.8850214, 18.5570999);

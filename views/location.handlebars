@@ -1,0 +1,29 @@
+<html>
+
+<body>
+<form id='location' action='/location' method="post">
+	<input style='display:none' name='latitude' id='latitude'>
+	<input style='display:none' name='longitude' id='longitude'>
+</form>
+<script type="text/javascript">
+	
+	navigator.geolocation.getCurrentPosition(function(location){
+
+					document.getElementById('latitude').value = location.coords.latitude;
+					document.getElementById('longitude').value = location.coords.longitude;
+					
+					//document.getElementById('latitude').value = -33.9044802000;
+					//document.getElementById('longitude').value = 18.60810;
+					
+					
+					
+					
+					document.getElementById('location').submit();
+					
+
+	})
+	
+</script>
+</body>
+
+</html>

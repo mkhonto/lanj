@@ -47,6 +47,7 @@ var taxiRanks = new rank();
 app.get('/',taxiRanks.getCurrentLocation );
 app.get('/whereami',taxiRanks.findNear)
 app.post('/location',taxiRanks.receiveLocation)
+app.post('/location/searched',taxiRanks.receivedSearch)
 app.get('/simulation',taxiRanks.runSimulation)
 app.post('/simulation',taxiRanks.simulate)
 app.post('/search',taxiRanks.search)

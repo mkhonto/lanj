@@ -28,7 +28,7 @@ module.exports = function(connection){
   }
 
   this.getInfo = function(rank_id,cb){
-    return queryExecutor.executeQuery('select * from rank where rank_id = ?',cb)
+    return queryExecutor.executeQuery('select * from rank where rank_id = ?',rank_id,cb)
   }
 
   this.getRoutes = function(rank_id,cb){

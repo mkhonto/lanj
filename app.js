@@ -13,10 +13,10 @@ var app = express();
 
 var dbOptions = {
 	host: 'localhost',
-	user: 'root',
-	password: 'theaya5379',
+	user: 'freakils',
+	password: 'fish04',
 	port: 3306,
-	database: 'getmethere_test',
+	database: 'getmethere',
 };
 
 var serviceSetupCallback = function(connection){

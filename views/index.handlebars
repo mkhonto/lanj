@@ -119,13 +119,13 @@
 				ranks.push(rankObj)
 	}
 	{{#ranks}}
-	var rank = {}
+	var rank = {};
 	rank['id']={{rank_id}};
 	rank['name'] = '{{name}}';
 	rank['latitude']={{latitude}};
 	rank['longitude']={{longitude}};
 	rank['type']='{{type}}';
-	addRank(rank)
+	addRank(rank);
 	{{/ranks}}
 
 		

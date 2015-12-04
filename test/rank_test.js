@@ -33,7 +33,7 @@ describe('Rank Data Service', function(){
       });
       it('should get rank info', function (done) {
           rankService
-            .getRankInfo(2)
+            .getInfo(2)
             .done(function(rank){
 
                 var bellville = {

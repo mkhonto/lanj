@@ -1,6 +1,6 @@
 
 
-drop table if exists rank;
+drop table if exists `rank`;
 CREATE TABLE IF NOT EXISTS `rank` (
   `rank_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(100) DEFAULT NULL,
@@ -28,7 +28,7 @@ INSERT INTO `rank` (`rank_id`, `name`, `type`, `latitude`, `longitude`, `opening
 (11, 'Delft South', 'official', -33.9917910000, 18.6306800000, '06 AM', '21 PM');
 
 
-drop table if exists;
+drop table if exists `route`;
 CREATE TABLE IF NOT EXISTS `route` (
   `route_id` int(11) NOT NULL AUTO_INCREMENT,
   `rank_id` int(42) DEFAULT NULL,

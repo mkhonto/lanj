@@ -1,6 +1,7 @@
 var geolib = require("geolib");
 module.exports = function(){
 	this.currentLocation ={};
+	this.destinationLocation ={};
 	var self=this;
 
 	this.findNear = function(req, res, next){
@@ -42,7 +43,7 @@ module.exports = function(){
 					rankInfo.forEach(function(rank){
 						rankService.getRoutes(rank.rank_id, function(err, routes){
 							rank["routes"] = routes; 
-							console.log("\n" + JSON.stringify(rank));
+							//console.log("\n" + JSON.stringify(rank));
 						});
 
 					});
@@ -51,7 +52,32 @@ module.exports = function(){
 					console.log(locationData)
 
 					if (!locationData)
-						res.render('index', {ranks:rankInfo.slice(0,5),currentLocation:self.currentLocation})
+						if(Object.keys(self.destinationLocation).length !=0){
+							console.log('Displaying Searched Location')
+							console.log('From :'+JSON.stringify(self.currentLocation))
+							console.log('To :'+JSON.stringify(self.destinationLocation))
+							/*var flow =[];
+							flow.push(self.currentLocation);
+
+							ranks.forEach(function(rank){
+								if(rank.latitude == self.destinationLocation.latitude && rank.longitude == self.destinationLocation.longitude){
+									self.destinationLocation = rank;
+								}
+							})
+
+							ranks.forEach(function(rank){
+								rank.routes.forEach(function(route){
+									if(route.destination_id == self.destinationLocation.rank_id){
+
+									}
+								})
+							})*/
+							res.render('index', {ranks:rankInfo.slice(0,5),currentLocation:self.currentLocation,destinationLocation:self.destinationLocation})
+						}
+						else{
+							res.render('index', {ranks:rankInfo.slice(0,5),currentLocation:self.currentLocation})
+						}
+						
 					else
 						res.render('locationData', {ranks:rankInfo.slice(0,4)})
 				})
@@ -69,10 +95,17 @@ module.exports = function(){
 		console.log('\nReceived Location')
 		
 		self.currentLocation =location;
+
 		console.log(self.currentLocation)
 		res.redirect('/whereami')
 	}
-
+	this.receivedSearch = function(req,res,next){
+		var location = req.body;
+		console.log('\nReceived Search Data')
+		console.log(location)
+		self.destinationLocation =location;
+		res.redirect('/whereami')
+	}
 	this.runSimulation = function(req,res,next){
 		console.log('\n-------------- SIMULATION -------------')
 		console.log('Requesting location')

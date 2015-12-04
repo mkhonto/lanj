@@ -32,28 +32,26 @@
 	<div class="row" id="locationData" >
 
 		
-				<!-- <h6 class='flow-text'><small>GET ME THERE.CO.ZA</small> </h6> -->
+				
 				<div class='center blue darken-1 card-panel col m7 s12'>
 					<h4 class='flow-text'><small><b>Where are you going ?</b></small></h3>
 					<h6> Nearest taxis to you are in  <b> {{ranks.0.name}} </b> </h6> 
 					<p style='display:none;' id='latitude'>{{currentLocation.latitude}}</p>
 					<p style='display:none;' id='longitude'>{{currentLocation.longitude}}</p>
-				  	<div class="form-group col s12">
-				    	<input type="text" id='search' class="white form-control " placeholder="Search Destination">
+					<p style='display:none;' id='des_latitude'>{{destinationLocation.latitude}}</p>
+					<p style='display:none;' id='des_longitude'>{{destinationLocation.longitude}}</p>
+				  	<div id='serching' class="form-group col s12 right">
+				    	<input type="text" id='search' class=" col s10 m12 white form-control right " placeholder="Search Destination">
+				    	
+				    	<ul id='dropdown1' class='dropdown-content col s12 m12'>
+						    <li class='col s12 m12'><a href="#!">searching...</a></li>
+						    
+						</ul>
 				  	</div>
 				  	<br>
 				  	<br>
 				  	<h5><small> Here's how you get there</small></h5>
-				  	<!-- <div id="floating-panel">
-				    <b>Mode of Travel: </b>
-				    <select id="mode">
-				      <option value="DRIVING">Driving</option>
-				      <option value="WALKING">Walking</option>
-				      <option value="BICYCLING">Bicycling</option>
-				      <option value="TRANSIT">Transit</option>
-				    </select>
-				    </div> -->
-				    <div id="map" class='col s12'></div>
+				  	<div id="map" class='col s12'></div>
 				</div>
 			
 	
@@ -94,16 +92,7 @@
 				</div>
 
 				
-				  <!-- Modal Structure -->
-				  <div id="modal1" class="red modal modal-fixed-footer">
-				    <div class="modal-content">
-				      <h4>Modal Header</h4>
-				      <p>A bunch of text</p>
-				    </div>
-				    <div class="modal-footer">
-				      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-				    </div>
-				  </div>
+				 
 				          
 
 	</div>

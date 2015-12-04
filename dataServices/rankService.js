@@ -8,6 +8,10 @@ module.exports = function(connection){
 		query('select * from rank',cb)
 	}
 
+	this.findRank = function(name,cb){
+		query("select * from rank where name like ? ", "%" + name + "%" ,cb)
+	}
+
 	this.getInfo = function(rank_id,cb){
 		query('select * from rank where rank_id = ?',cb)
 	}

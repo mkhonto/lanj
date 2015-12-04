@@ -18,7 +18,7 @@ describe('Rank Data Service', function(){
           rankService
             .getAllRanks()
             .done(function(ranks){
-                assert.equal(2, ranks.length);
+                assert.equal(3, ranks.length);
                 done();
             });
       });
@@ -33,7 +33,7 @@ describe('Rank Data Service', function(){
       });
       it('should get rank info', function (done) {
           rankService
-            .getRankInfo(2)
+            .getInfo(2)
             .done(function(rank){
 
                 var bellville = {

@@ -13,10 +13,10 @@ var app = express();
 
 var dbOptions = {
 	host: 'localhost',
-	user: 'freakils',
-	password: 'fish04',
+	user: 'root',
+	password: 'theaya5379',
 	port: 3306,
-	database: 'getmethere',
+	database: 'getmethere_test',
 };
 
 var serviceSetupCallback = function(connection){
@@ -47,6 +47,9 @@ var taxiRanks = new rank();
 app.get('/',taxiRanks.getCurrentLocation );
 app.get('/whereami',taxiRanks.findNear)
 app.post('/location',taxiRanks.receiveLocation)
+app.get('/simulation',taxiRanks.runSimulation)
+app.post('/simulation',taxiRanks.simulate)
+app.post('/search',taxiRanks.search)
 
 app.listen(5000, function(){
 	console.log('Server started! At http://localhost:5000');

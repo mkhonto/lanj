@@ -2,8 +2,22 @@ var geolib = require("geolib");
 module.exports = function(){
 	this.currentLocation ={};
 	var self=this;
+
 	this.findNear = function(req, res, next){
 		
+		var locationData = false;
+		
+		console.log(" ######### : " + JSON.stringify(req.body) );
+
+
+		if (req.body.latitude && req.body.longitude){
+			self.currentLocation = {latitude : req.body.latitude, longitude : req.body.longitude};
+			locationData = true;
+			
+			console.log("********");
+
+		};
+
 		req.services(function(err,services){
 			if(Object.keys(self.currentLocation).length == 0){
 				    console.log('No Location')
@@ -32,7 +46,14 @@ module.exports = function(){
 						});
 
 					});
-					res.render('index',{ranks:rankInfo.slice(0,4)})
+
+					console.log('locationData')
+					console.log(locationData)
+
+					if (!locationData)
+						res.render('index', {ranks:rankInfo.slice(0,5),currentLocation:self.currentLocation})
+					else
+						res.render('locationData', {ranks:rankInfo.slice(0,4)})
 				})
 			}
 			
@@ -50,5 +71,36 @@ module.exports = function(){
 		self.currentLocation =location;
 		console.log(self.currentLocation)
 		res.redirect('/whereami')
+	}
+
+	this.runSimulation = function(req,res,next){
+		console.log('\n-------------- SIMULATION -------------')
+		console.log('Requesting location')
+		res.render('simlation')
+	}
+
+	this.simulate = function(req,res,next){
+		var location = req.body;
+		console.log('\nSimulation location received')
+		
+		self.currentLocation =location;
+		console.log(self.currentLocation)
+		res.redirect('/whereami')
+	}
+
+	this.search = function(req, res, next){		
+		req.services(function(err,services){
+			console.log('\n\n\t SEARCH')
+			console.log(req.body)
+			var rankService = services.rankService
+			var location = req.body;
+			rankService.findRank(location.find,function(err,results){
+				if(err)console.log(err)
+				//console.log('\n\n\t RESULTS')
+				//console.log(results)
+				res.send(results);
+			})
+		})
+
 	}
 }

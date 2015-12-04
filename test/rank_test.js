@@ -37,11 +37,11 @@ describe('Rank Data Service', function(){
             .done(function(rank){
 
                 var bellville = {
-                  id:2,
+                  rank_id:2,
                   name :'Bellvile',
                   type:'official',
-                  lattitude:10.1457800000,
-                  longitude:-20.1447600000
+                  latitude:33.9044802,
+                  longitude:18.6081095
                 }
                 
                 assert.deepEqual(bellville,rank);

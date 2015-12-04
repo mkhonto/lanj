@@ -18,7 +18,7 @@ describe('Rank Data Service', function(){
           rankService
             .getAllRanks()
             .done(function(ranks){
-                assert.equal(2, ranks.length);
+                assert.equal(3, ranks.length);
                 done();
             });
       });

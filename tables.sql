@@ -1,6 +1,4 @@
---
--- Table structure for table `rank`
---
+
 
 drop table if exists rank;
 CREATE TABLE IF NOT EXISTS `rank` (
@@ -12,11 +10,9 @@ CREATE TABLE IF NOT EXISTS `rank` (
   `opening_time` varchar(100) NOT NULL,
   `closing_time` varchar(100) NOT NULL,
   PRIMARY KEY (`rank_id`)
-)
+);
 
---
--- Dumping data for table `rank`
---
+
 
 INSERT INTO `rank` (`rank_id`, `name`, `type`, `latitude`, `longitude`, `opening_time`, `closing_time`) VALUES
 (1, 'Cape Town', 'official', -33.9222350000, 18.4264440000, '04 AM', '23 PM'),
@@ -31,11 +27,6 @@ INSERT INTO `rank` (`rank_id`, `name`, `type`, `latitude`, `longitude`, `opening
 (10, 'Langa', 'Official', -33.9456470000, 18.5366780000, '04 AM', '23 PM'),
 (11, 'Delft South', 'official', -33.9917910000, 18.6306800000, '06 AM', '21 PM');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `route`
---
 
 drop table if exists;
 CREATE TABLE IF NOT EXISTS `route` (
@@ -46,11 +37,8 @@ CREATE TABLE IF NOT EXISTS `route` (
   `destination_id` int(11) NOT NULL,
   PRIMARY KEY (`route_id`),
   KEY `rank_id` (`rank_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+);
 
---
--- Dumping data for table `route`
---
 
 INSERT INTO `route` (`route_id`, `rank_id`, `route_name`, `price`, `destination_id`) VALUES
 (1, 2, 'Bellville N2 Cape Town CBD', 16.50, 1),
@@ -65,12 +53,6 @@ INSERT INTO `route` (`route_id`, `rank_id`, `route_name`, `price`, `destination_
 (11, 3, 'Khayelitsha - Gugulethu', 13.00, 4),
 (12, 4, 'Gugulethu - Khayelitsha', 13.00, 3);
 
---
--- Constraints for dumped tables
---
 
---
--- Constraints for table `route`
---
 ALTER TABLE `route`
   ADD CONSTRAINT `route_ibfk_1` FOREIGN KEY (`rank_id`) REFERENCES `rank` (`rank_id`);

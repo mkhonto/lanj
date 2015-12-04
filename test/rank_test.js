@@ -44,7 +44,7 @@ describe('Rank Data Service', function(){
                   longitude:18.6081095
                 }
                 
-                assert.deepEqual(bellville,rank);
+                assert.deepEqual(bellville,rank[0]);
                 done();
             });
       });

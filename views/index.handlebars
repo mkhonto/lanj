@@ -52,6 +52,8 @@
 				  	<br>
 				  	<h5><small> Here's how you get there</small></h5>
 				  	<div id="map" class='col s12'></div>
+					<br>
+					<br> <small class='black-text '>GET ME THERE &trade;</small> 
 				</div>
 			
 	
@@ -62,17 +64,16 @@
 
 						<div id="ranks-near">
 							
-							  <ul class="collapsible col s12 m12" data-collapsible="accordion">
+							  <ul class="white collapsible col s12 m12" data-collapsible="accordion">
 							  {{#ranks}}
 							    <li id='{{rank_id}}' onclick ='mapLocation({{latitude}},{{longitude}})'>
 
 							      <div class="collapsible-header">
-							      <i class="material-icons">location_on</i> {{name}} 
+							      <i class="material-icons">location_on</i><small><b> {{name}}</b></small> 
 
-							      <span class='chip secondary-content right blue accent-3 white-text'>
-							      	<small> Hours {{opening_time}}  - {{closing_time}} </small>
-							      </span>
-							      </div>
+						
+							      	<small class='blue-text accent-3'>Hours {{opening_time}}  - {{closing_time}} </small>
+							       </div>
 							      <div class="collapsible-body"><p>
 
 							      {{#routes}}
